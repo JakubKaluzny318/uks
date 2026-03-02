@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-blue: #1c5f8e;
+            --accent-yellow: #ffcc00;
+            --background-light: #f8fafc;
+            --charcoal: #1e293b;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1c5f8e",
+                        "accent": "#ffcc00",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "charcoal": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body>
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md">
+  <div class="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 lg:px-10">
+
+    <!-- LOGO -->
+    <div class="flex items-center gap-3">
+      <div class="flex h-24 w-24 items-center justify-center rounded-lg overflow-hidden">
+        <img src="logo.png" alt="logo">
+      </div>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden md:flex flex-1 justify-center gap-8">
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="results.html">Osiągnięcia</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="historia.html">Historia</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="#clubFaces">Twarze Klubu</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="#coaches">Kadra Trenerska</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="#forSponsors">Sponsoring</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="aktualnosci.html">Aktualności</a>
+    </nav>
+
+    <!-- HAMBURGER (MOBILE) -->
+    <button
+      id="mobile-menu-button"
+      class="md:hidden flex items-center justify-center w-10 h-10"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <!-- klasyczny hamburger -->
+      <div class="space-y-1">
+        <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
+        <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
+        <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
+      </div>
+    </button>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 z-40 hidden"
+  >
+    <!-- OVERLAY (TO PRZYCIEMNIA TŁO) -->
+    <div
+      id="mobile-overlay"
+      class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
+    ></div>
+
+    <!-- PANEL MENU -->
+    <div
+      id="mobile-panel"
+      class="relative bg-white dark:bg-background-dark p-8 space-y-6 transform transition-opacity duration-300 opacity-0"
+    >
+      <a class="block font-semibold" href="results.html">Osiągnięcia</a>
+      <a class="block font-semibold" href="#">Historia</a>
+      <a class="block font-semibold" href="#">Twarze Klubu</a>
+      <a class="block font-semibold" href="#">Kadra Trenerska</a>
+      <a class="block font-semibold" href="#">Sponsoring</a>
+      <a class="block font-semibold" href="aktualnosci.html">Aktualności</a>
+    </div>
+  </div>
+</header>
+<!-- Desktop Sidebar -->
+<aside class="fixed left-0 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center">
+  <div class="bg-primary border border-white/10 border-l-0 rounded-r-xl shadow-2xl backdrop-blur-md flex flex-col items-center py-6 gap-6 w-16 group transition-all duration-300 hover:w-20 relative">
+    <!-- Label -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="vertical-text text-[10px] font-bold tracking-[0.2em] text-white uppercase ">Śledź nas</span>
+      <div class="w-[1px] h-8 bg-primary/30"></div>
+    </div>
+    <!-- Social Links -->
+    <div class="flex flex-col gap-4">
+      <!-- Facebook -->
+      <a aria-label="Facebook" class="sidebar-item relative flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-accent transition-all duration-300 group/item" href="https://www.facebook.com/UKS12KALISZ">
+        <span class="material-symbols-outlined text-white group-hover/item:text-background-white">social_leaderboard</span>
+        <span class="tooltip absolute left-full top-1/2 -translate-y-1/2 ml-4 px-3 py-1.5 bg-primary text-background-dark text-xs font-bold rounded
+                     opacity-0 group-hover/item:opacity-100 pointer-events-auto transition-all duration-300 transform -translate-x-2 whitespace-nowrap z-50 text-white">
+          FACEBOOK
+        </span>
+      </a>
+
+      <!-- Instagram -->
+      <a aria-label="Instagram" class="sidebar-item relative flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-accent transition-all duration-300 group/item" href="#">
+        <svg class="w-6 h-6 text-white group-hover/item:text-background-white" fill="currentColor" viewBox="0 0 256 256">
+          <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+        </svg>
+        <span class="tooltip absolute left-full top-1/2 -translate-y-1/2 ml-4 px-3 py-1.5 bg-primary text-background-white text-xs font-bold rounded
+                     opacity-0 group-hover/item:opacity-100 pointer-events-auto transition-all duration-300 transform -translate-x-2 whitespace-nowrap z-50 text-white">
+          INSTAGRAM
+        </span>
+      </a>
+    </div>
+    <!-- Branding Bottom -->
+    <div class="mt-4 flex flex-col items-center gap-3">
+      <div class="w-8 h-[1px] bg-white/10"></div>
+      <div class="flex flex-col items-center">
+        <span class="text-xs font-black text-white mb-1">UKS</span>
+        <span class="text-lg font-black text-white leading-none">12</span>
+        <span class="text-[10px] font-bold text-white mt-1 uppercase tracking-tighter">Kalisz</span>
+      </div>
+    </div>
+
+  </div>
+</aside>
+
+<!-- Mobile Bottom Bar (bez zmian) -->
+<div class="fixed bottom-0 left-0 w-full md:hidden flex justify-center bg-primary border-t border-white/10 backdrop-blur-md py-2 gap-4 z-50">
+  <!-- Ikony -->
+  <a aria-label="Facebook" class="flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-primary transition-all duration-300" href="#">
+    <span class="material-symbols-outlined text-white">social_leaderboard</span>
+  </a>
+  <a href="" class="flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-primary transition-all duration-300 text-white font-bold">Śledź nas</a>
+  <a aria-label="Instagram" class="flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-primary transition-all duration-300" href="#">
+    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 256 256">
+      <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+    </svg>
+  </a>
+</div>
+<section class="bg-white-100 py-16">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-400">
+          Grafik Treningów
+        </h1>
+        <p class="text-gray-600 mt-3">
+          Sprawdź aktualny plan zajęć naszego klubu.
+        </p>
+      </div>
+
+      <button class="flex items-center gap-2 border border-gray-300 px-5 py-2 rounded-lg text-gray-600 hover:bg-white transition">
+        <span class="material-symbols-outlined text-base">print</span>
+        Drukuj
+      </button>
+    </div>
+
+    <!-- Table Card -->
+    <div class="bg-[#2d638a] rounded-2xl shadow-xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-white">
+          <thead class="bg-[#2a5d82] text-sm uppercase tracking-wider text-gray-200">
+            <tr>
+              <th class="px-8 py-5">Dzień tygodnia</th>
+              <th class="px-8 py-5">Godzina</th>
+              <th class="px-8 py-5">Lokalizacja</th>
+            </tr>
+          </thead>
+
+          <tbody class="divide-y divide-white/10 text-base">
+            <tr class="hover:bg-white/5 transition">
+              <td class="px-8 py-6 font-semibold">Poniedziałek</td>
+              <td class="px-8 py-6">16:00</td>
+              <td class="px-8 py-6 flex items-center gap-3">
+                <span class="material-symbols-outlined text-yellow-400 text-base">
+                  location_on
+                </span>
+                Długosza 14, 62-800 Kalisz
+              </td>
+            </tr>
+
+            <tr class="hover:bg-white/5 transition">
+              <td class="px-8 py-6 font-semibold">Wtorek</td>
+              <td class="px-8 py-6">16:00</td>
+              <td class="px-8 py-6 flex items-center gap-3">
+                <span class="material-symbols-outlined text-yellow-400 text-base">
+                  location_on
+                </span>
+                Łódzka 19/29, 62-800 Kalisz *
+              </td>
+            </tr>
+
+            <tr class="hover:bg-white/5 transition">
+              <td class="px-8 py-6 font-semibold">Środa</td>
+              <td class="px-8 py-6">16:00</td>
+              <td class="px-8 py-6 flex items-center gap-3">
+                <span class="material-symbols-outlined text-yellow-400 text-base">
+                  location_on
+                </span>
+                Łódzka 19/29, 62-800 Kalisz *
+              </td>
+            </tr>
+
+            <tr class="hover:bg-white/5 transition">
+              <td class="px-8 py-6 font-semibold">Czwartek</td>
+              <td class="px-8 py-6">-</td>
+              <td class="px-8 py-6">-</td>
+            </tr>
+
+            <tr class="hover:bg-white/5 transition">
+              <td class="px-8 py-6 font-semibold">Piątek</td>
+              <td class="px-8 py-6">16:00</td>
+              <td class="px-8 py-6 flex items-center gap-3">
+                <span class="material-symbols-outlined text-yellow-400 text-base">
+                  location_on
+                </span>
+                Długosza 14, 62-800 Kalisz
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Info Box -->
+    <div class="mt-10 bg-[#2d638a] rounded-2xl px-8 py-6 text-white text-center text-sm md:text-base shadow-lg">
+      * Listopad–marzec – Hala Lekkoatletyczna | Kwiecień–październik – Stadion Miejski
+    </div>
+
+  </div>
+</section>
+<footer class="bg-primary text-slate-100 py-16">
+<div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+<div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center rounded-lg bg-accent p-2 text-primary">
+<span class="material-symbols-outlined text-2xl font-bold">sprint</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight text-white uppercase leading-none">UKS 12 <span class="text-accent">Kalisz</span></h2>
+</div>
+<p class="text-sm leading-relaxed opacity-80">Wzmacnianie sportowców i budowanie społeczności od lat. Dołącz do naszej misji uczynienia sportu dostępnym dla każdego w Kaliszu.</p>
+<div class="flex gap-4">
+<a class="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-accent hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-accent hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="mb-6 font-bold text-accent uppercase tracking-widest text-xs">Szybkie Linki</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li><a class="hover:text-accent transition-colors" href="#">Aktualności</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Harmonogram Treningów</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Ofert Sponsoringowa</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Rekordy Klubu</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Kontakt</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mb-6 font-bold text-accent uppercase tracking-widest text-xs">Programy</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li><a class="hover:text-accent transition-colors" href="#">Klub Biegacza</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Akademia Młodzieżowa</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Trening Wyczynowy</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Sekcja Techniczna</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mb-6 font-bold text-accent uppercase tracking-widest text-xs">Kontakt</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-accent text-sm">location_on</span>
+                            ul. Długosza 12, 62-800 Kalisz, Polska
+                        </li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-accent text-sm">call</span>
+                            +48 (62) 123 45 67
+                        </li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-accent text-sm">mail</span>
+                            kontakt@uks12kalisz.pl
+                        </li>
+</ul>
+</div>
+</div>
+<div class="mt-16 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium opacity-60">
+<p>© 2024 UKS 12 Kalisz. Wszystkie prawa zastrzeżone.</p>
+<div class="flex gap-8">
+<a class="hover:text-accent transition-colors" href="#">Polityka Prywatności</a>
+<a class="hover:text-accent transition-colors" href="#">Regulamin</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src="header.js"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="light" lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UKS 12 Kalisz | Rejestracja Zawodnika</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary-blue: #1c5f8e;
+            --accent-yellow: #ffcc00;
+            --background-light: #f8fafc;
+            --charcoal: #1e293b;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1c5f8e",
+                        "accent": "#ffcc00",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "charcoal": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-charcoal dark:text-slate-100 antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen flex-col">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md">
+  <div class="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 lg:px-10">
+
+    <!-- LOGO -->
+    <div class="flex items-center gap-3">
+      <div class="flex h-24 w-24 items-center justify-center rounded-lg overflow-hidden">
+        <img src="logo.png" alt="logo">
+      </div>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden md:flex flex-1 justify-center gap-8">
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="results.html">Osiągnięcia</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="historia.html">Historia</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Twarze Klubu</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Kadra Trenerska</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Sponsoring</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="aktualnosci.html">Aktualności</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="formularz.html">Zgłoszenia</a>
+    </nav>
+
+    <!-- HAMBURGER (MOBILE) -->
+    <button
+      id="mobile-menu-button"
+      class="md:hidden flex items-center justify-center w-10 h-10"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <!-- klasyczny hamburger -->
+      <div class="space-y-1">
+        <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
+        <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
+        <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
+      </div>
+    </button>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 z-40 hidden"
+  >
+    <!-- OVERLAY (TO PRZYCIEMNIA TŁO) -->
+    <div
+      id="mobile-overlay"
+      class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
+    ></div>
+
+    <!-- PANEL MENU -->
+    <div
+      id="mobile-panel"
+      class="relative bg-white dark:bg-background-dark p-8 space-y-6 transform transition-opacity duration-300 opacity-0"
+    >
+      <a class="block font-semibold" href="results.html">Osiągnięcia</a>
+      <a class="block font-semibold" href="#">Historia</a>
+      <a class="block font-semibold" href="#">Twarze Klubu</a>
+      <a class="block font-semibold" href="#">Kadra Trenerska</a>
+      <a class="block font-semibold" href="#">Sponsoring</a>
+      <a class="block font-semibold" href="aktualnosci.html">Aktualności</a>
+      <a class="block font-semibold" href="formularz.html">Zgłoszenia</a>
+    </div>
+  </div>
+</header>
+<!-- Desktop Sidebar -->
+<aside class="fixed left-0 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center">
+  <div class="bg-primary border border-white/10 border-l-0 rounded-r-xl shadow-2xl backdrop-blur-md flex flex-col items-center py-6 gap-6 w-16 group transition-all duration-300 hover:w-20 relative">
+    <!-- Label -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="vertical-text text-[10px] font-bold tracking-[0.2em] text-accent uppercase ">Śledź nas</span>
+      <div class="w-[1px] h-8 bg-primary/30"></div>
+    </div>
+    <!-- Social Links -->
+    <div class="flex flex-col gap-4">
+      <!-- Facebook -->
+      <a aria-label="Facebook" class="sidebar-item relative flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-accent transition-all duration-300 group/item" href="#">
+        <span class="material-symbols-outlined text-white group-hover/item:text-background-white">social_leaderboard</span>
+        <span class="tooltip absolute left-full top-1/2 -translate-y-1/2 ml-4 px-3 py-1.5 bg-primary text-background-dark text-xs font-bold rounded
+                     opacity-0 group-hover/item:opacity-100 pointer-events-auto transition-all duration-300 transform -translate-x-2 whitespace-nowrap z-50 text-white">
+          FACEBOOK
+        </span>
+      </a>
+
+      <!-- Instagram -->
+      <a aria-label="Instagram" class="sidebar-item relative flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-accent transition-all duration-300 group/item" href="#">
+        <svg class="w-6 h-6 text-white group-hover/item:text-background-white" fill="currentColor" viewBox="0 0 256 256">
+          <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+        </svg>
+        <span class="tooltip absolute left-full top-1/2 -translate-y-1/2 ml-4 px-3 py-1.5 bg-primary text-background-white text-xs font-bold rounded
+                     opacity-0 group-hover/item:opacity-100 pointer-events-auto transition-all duration-300 transform -translate-x-2 whitespace-nowrap z-50 text-white">
+          INSTAGRAM
+        </span>
+      </a>
+    </div>
+    <!-- Branding Bottom -->
+    <div class="mt-4 flex flex-col items-center gap-3">
+      <div class="w-8 h-[1px] bg-white/10"></div>
+      <div class="flex flex-col items-center">
+        <span class="text-xs font-black text-accent mb-1">UKS</span>
+        <span class="text-lg font-black text-accent leading-none">12</span>
+        <span class="text-[10px] font-bold text-accent mt-1 uppercase tracking-tighter">Kalisz</span>
+      </div>
+    </div>
+
+  </div>
+</aside>
+
+<!-- Mobile Bottom Bar (bez zmian) -->
+<div class="fixed bottom-0 left-0 w-full md:hidden flex justify-center bg-primary border-t border-white/10 backdrop-blur-md py-2 gap-4 z-50">
+  <!-- Ikony -->
+  <a aria-label="Facebook" class="flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-primary transition-all duration-300" href="#">
+    <span class="material-symbols-outlined text-white">social_leaderboard</span>
+  </a>
+  <a href="" class="flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-primary transition-all duration-300 text-white font-bold">Śledź nas</a>
+  <a aria-label="Instagram" class="flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-primary transition-all duration-300" href="#">
+    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 256 256">
+      <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+    </svg>
+  </a>
+</div>
+<main class="flex-1">
+<section class="bg-primary py-12 lg:py-16 text-white">
+<div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+<div class="max-w-3xl">
+<h1 class="text-4xl lg:text-5xl font-black mb-4">Dołącz do Drużyny</h1>
+<p class="text-lg text-slate-200 leading-relaxed">Rozpocznij swoją lekkoatletyczną przygodę w UKS 12 Kalisz. Wypełnij poniższy formularz zgłoszeniowy, aby zapisać się na pierwszy trening.</p>
+</div>
+</div>
+</section>
+<section class="py-16 lg:py-24">
+<div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<div class="lg:col-span-8">
+<div class="bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 p-8 lg:p-12">
+<h2 class="text-3xl font-bold text-primary dark:text-white mb-8">Zapisz się</h2>
+<form action="#" class="space-y-10">
+<div class="space-y-6">
+<div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-2">
+<span class="material-symbols-outlined text-primary">person</span>
+<h3 class="font-bold text-lg uppercase tracking-wider">Dane Zawodnika</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300" for="athlete_name">Imię i Nazwisko</label>
+<input class="w-full rounded-lg border-slate-200 dark:bg-slate-800 dark:border-slate-700 focus:ring-primary focus:border-primary px-4 py-3" id="athlete_name" placeholder="np. Jan Kowalski" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300" for="dob">Data Urodzenia</label>
+<input class="w-full rounded-lg border-slate-200 dark:bg-slate-800 dark:border-slate-700 focus:ring-primary focus:border-primary px-4 py-3" id="dob" type="date"/>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-2">
+<span class="material-symbols-outlined text-primary">family_restroom</span>
+<h3 class="font-bold text-lg uppercase tracking-wider">Kontakt (Rodzic/Opiekun)</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300" for="parent_name">Imię i Nazwisko Opiekuna</label>
+<input class="w-full rounded-lg border-slate-200 dark:bg-slate-800 dark:border-slate-700 focus:ring-primary focus:border-primary px-4 py-3" id="parent_name" placeholder="Imię i nazwisko" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300" for="phone">Numer Telefonu</label>
+<input class="w-full rounded-lg border-slate-200 dark:bg-slate-800 dark:border-slate-700 focus:ring-primary focus:border-primary px-4 py-3" id="phone" placeholder="+48 000 000 000" type="tel"/>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300" for="email">Adres E-mail</label>
+<input class="w-full rounded-lg border-slate-200 dark:bg-slate-800 dark:border-slate-700 focus:ring-primary focus:border-primary px-4 py-3" id="email" placeholder="email@przyklad.pl" type="email"/>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+    <div class="space-y-6">
+  <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-2">
+    <span class="material-symbols-outlined text-primary">sports</span>
+    <h3 class="font-bold text-lg uppercase tracking-wider">Wybór Sekcji</h3>
+  </div>
+
+  <div class="space-y-2">
+    <label for="section" class="block text-sm font-bold text-slate-700 dark:text-slate-300">
+      Wybierz sekcję
+    </label>
+
+    <select 
+      id="section" 
+      name="section" 
+      required
+      class="w-full rounded-lg border-slate-200 dark:bg-slate-800 dark:border-slate-700 focus:ring-primary focus:border-primary px-4 py-3"
+    >
+      <option value="">-- Wybierz sekcję --</option>
+      <option value="boks">Boks</option>
+      <option value="zapasy">Zapasy</option>
+      <option value="mma">MMA</option>
+      <option value="kickboxing">Kickboxing</option>
+    </select>
+  </div>
+</div>
+
+<div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-2">
+<span class="material-symbols-outlined text-primary">medical_services</span>
+<h3 class="font-bold text-lg uppercase tracking-wider">Informacje Medyczne</h3>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300" for="medical">Przeciwwskazania lub Alergie</label>
+<textarea class="w-full rounded-lg border-slate-200 dark:bg-slate-800 dark:border-slate-700 focus:ring-primary focus:border-primary px-4 py-3" id="medical" placeholder="Wpisz ewentualne ważne informacje zdrowotne o zawodniku..." rows="3"></textarea>
+</div>
+</div>
+<div class="space-y-4 pt-4">
+<label class="flex items-start gap-3 cursor-pointer group">
+<input class="mt-1 rounded text-primary focus:ring-primary border-slate-300" type="checkbox"/>
+<span class="text-sm text-slate-600 dark:text-slate-400 leading-snug">Wyrażam zgodę na przetwarzanie danych osobowych w celu rekrutacji zgodnie z polityką prywatności klubu.</span>
+</label>
+</div>
+<button class="w-full md:w-auto min-w-[240px] bg-accent text-primary font-black py-4 px-10 rounded-xl shadow-xl shadow-accent/20 hover:scale-105 transition-transform uppercase tracking-wider" type="submit">
+                                    Wyślij Zgłoszenie
+                                </button>
+</form>
+</div>
+</div>
+<div class="lg:col-span-4 space-y-8">
+<div class="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-8 border border-slate-100 dark:border-slate-800">
+<h3 class="text-2xl font-bold text-primary dark:text-white mb-6">Proces Rekrutacji</h3>
+<div class="space-y-8">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">1</div>
+<div>
+<h4 class="font-bold text-charcoal dark:text-white">Formularz Online</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Wypełnij zgłoszenie na tej stronie. Otrzymasz potwierdzenie e-mail.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">2</div>
+<div>
+<h4 class="font-bold text-charcoal dark:text-white">Kontakt Trenera</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-1">W ciągu 48h skontaktujemy się z Tobą, aby dobrać odpowiednią grupę treningową.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">3</div>
+<div>
+<h4 class="font-bold text-charcoal dark:text-white">Pierwszy Trening</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Zapraszamy na darmowy trening próbny. Sprawdź, czy to sport dla Ciebie!</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">4</div>
+<div>
+<h4 class="font-bold text-charcoal dark:text-white">Formalności</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Po treningu próbnym podpisujemy deklarację członkowską.</p>
+</div>
+</div>
+</div>
+<div class="mt-10 p-4 bg-primary/5 rounded-xl border border-primary/10">
+<p class="text-sm text-primary font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-base">help</span>
+                                    Masz pytania?
+                                </p>
+<p class="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                                    Zadzwoń do nas: <strong>+48 (62) 123 45 67</strong> lub napisz na rekrutacja@uks12kalisz.pl
+                                </p>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-2xl bg-primary p-8 text-white">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">verified</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Bezpieczeństwo</h4>
+<p class="text-sm text-slate-200 leading-relaxed">Wszyscy nasi trenerzy posiadają uprawnienia państwowe oraz certyfikaty pierwszej pomocy. Twoje dziecko jest w dobrych rękach.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-primary text-slate-100 py-16">
+<div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+<div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center rounded-lg bg-accent p-2 text-primary">
+<span class="material-symbols-outlined text-2xl font-bold">sprint</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight text-white uppercase leading-none">UKS 12 <span class="text-accent">Kalisz</span></h2>
+</div>
+<p class="text-sm leading-relaxed opacity-80">Budujemy społeczność i rozwijamy talenty od 1994 roku. Dołącz do nas i poczuj sportową pasję w Kaliszu.</p>
+<div class="flex gap-4">
+<a class="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-accent hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-accent hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="mb-6 font-bold text-accent uppercase tracking-widest text-xs">Szybkie Linki</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li><a class="hover:text-accent transition-colors" href="#">Sponsoring</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Harmonogram</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Przewodnik dla początkujących</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Rekordy Klubu</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Kontakt</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mb-6 font-bold text-accent uppercase tracking-widest text-xs">Programy</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li><a class="hover:text-accent transition-colors" href="#">Klub Biegacza</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Akademia Młodych</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Elite Performance</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Lekkoatletyka dla dorosłych</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mb-6 font-bold text-accent uppercase tracking-widest text-xs">Kontakt</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-accent text-sm">location_on</span>
+                            ul. Długosza 12, 62-800 Kalisz, Polska
+                        </li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-accent text-sm">call</span>
+                            +48 (62) 123 45 67
+                        </li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-accent text-sm">mail</span>
+                            rekrutacja@uks12kalisz.pl
+                        </li>
+</ul>
+</div>
+</div>
+<div class="mt-16 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium opacity-60">
+<p>© 2024 UKS 12 Kalisz. Wszystkie prawa zastrzeżone.</p>
+<div class="flex gap-8">
+<a class="hover:text-accent transition-colors" href="#">Polityka Prywatności</a>
+<a class="hover:text-accent transition-colors" href="#">Regulamin</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src="header.js"></script>
+</body></html>

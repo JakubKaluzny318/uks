@@ -1,0 +1,154 @@
+📌 NOTATKA PROJEKTOWA — Integracja Sanity → Vanilla HTML/JS (Competition Results)
+
+🔧 STACK
+
+Frontend:
+
+* Vanilla JS (ES modules)
+* HTML + Tailwind CSS
+* Brak frameworków (React/Vue/etc.)
+* Brak bundlera (Vite/Webpack)
+
+Backend/CMS:
+
+* Sanity Studio
+* Project ID: cusodt8u
+* Dataset: production
+* Public read-only API (bez tokenów)
+
+---
+
+🧠 CEL
+
+Dynamiczne pobieranie i renderowanie wyników zawodów z Sanity w czystym HTML.
+
+Funkcjonalność:
+
+✔ lista wyników zawodów
+✔ sortowanie po dacie (najnowsze pierwsze — GROQ)
+✔ load more (3 elementy start + 3 po kliknięciu)
+✔ rich text description renderowany jako HTML
+✔ format daty PL
+✔ obsługa błędów API
+✔ przycisk load more blokowany gdy brak danych
+
+---
+
+🗂 SCHEMA SANITY — competitionResult
+
+Pola:
+
+* title (required)
+* slug
+* date (required)
+* city (required)
+* country (default: Polska)
+* medals:
+
+  * gold
+  * silver
+  * bronze
+* description (Portable Text, required)
+* isVisible (boolean — publish toggle)
+* seo:
+
+  * metaTitle
+  * metaDescription
+
+Walidacje:
+
+* wszystkie główne pola wymagane
+* medale ≥ 0
+* CMS uproszczony (form-only)
+
+---
+
+🔍 GROQ QUERY
+
+Pobierane tylko widoczne rekordy:
+
+*[_type == "competitionResult" && isVisible == true]
+| order(date desc)
+
+---
+
+🧩 ARCHITEKTURA FRONTEND
+
+HTML:
+
+Sekcja wyników zawiera:
+
+* #results-container → dynamiczny render kart
+* #load-more-btn → kontrola paginacji
+* #results-error → komunikat błędu
+
+Statyczne karty zostały usunięte — wszystko renderowane przez JS.
+
+---
+
+⚙ JS — results.js
+
+Logika:
+
+1. Fetch danych z Sanity API
+2. Zapis do allResults[]
+3. Render batchami (STEP = 3)
+4. Portable Text → uproszczone HTML
+5. PL format daty via toLocaleDateString
+6. Disabled load button przy końcu listy
+7. Error fallback UI
+
+Struktura:
+
+* loadResults() → pobranie danych
+* renderBatch() → render kolejnej porcji
+* createCard() → generowanie markup
+* portableToHTML() → minimalny renderer rich text
+
+---
+
+🎯 UX
+
+* Load more ładuje kolejne wpisy
+* przycisk dezaktywowany gdy brak danych
+* fallback komunikatu przy błędzie API
+* layout zgodny z Tailwind — brak zmian CSS
+
+---
+
+🚀 STATUS
+
+✔ integracja działa
+✔ dane renderują się dynamicznie
+✔ brak zależności zewnętrznych
+✔ future-proof pod:
+
+* filtrowanie
+* podstrony wyników
+* paginację
+* SEO dynamiczne
+
+---
+
+📌 ŚRODOWISKO
+
+Aktualnie testowane na:
+
+localhost
+
+Sanity CORS skonfigurowane poprawnie.
+
+---
+
+🔮 NASTĘPNE MOŻLIWE KROKI
+
+* filtrowanie po dacie/kategorii
+* podstrona wyniku
+* PDF attachments
+* skeleton loading
+* animacje
+* lazy loading
+
+---
+
+END NOTE

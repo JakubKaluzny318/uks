@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="title" content="UKS 12 Kalisz - Uczniowski  Lekkoatletyczny Klub Sportowy w Kaliszu">
+<meta name="description" content="UKS 12 Kalisz - klub sportowy dla dzieci i młodzieży. Biegi, rzuty oraz chód sportowy w profesjonalnej i bezpiecznej atmosferze.">
+<meta name="keywords" content="lekkoatletyka kalisz, uks12 kalisz, biegi sprinterskie kalisz, biegi dlugodystansowe kalisz, biegi sredniodystansowe kalisz, waldemar olszyna kalisz, pawel wisniewski kalisz, krzysztof kisiel kalisz, marcin mazi malecki kalisz, paulina tomaszewska kalisz, emilia wisniewska kalisz, amelia blazejewska kalisz, chód sportowy kalisz, chod sportowy kalisz, biegi średniodystansowe kalisz, teammiotaczy kalisz, sport dla dzieci kalisz, uks 12 kalisz aktulanosci, newsy uks 12 kalisz, wyniki uks 12 kalisz, lekkoatletyka dla kazdego kalisz, biegi dla dzieci kalisz, zajecia sportowe dla dzieci, profejsonalne treningi biegowe kalisz, lekkoatletyka dla dzieci i doroslych kalisz">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<title>UKS 12 Kalisz | Aktualności</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Montserrat:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0E5A8A",
+              accent: "#FFCC00",
+              "background-light": "#F8FAFC",
+              "skeleton": "#E2E8F0"
+            },
+            fontFamily: {
+              display: ["Montserrat", "sans-serif"],
+              sans: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
+<style type="text/tailwindcss">
+        .news-card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skeleton-bar {
+            @apply bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse;
+        }
+        .skeleton-box {
+            @apply bg-slate-300 dark:bg-slate-600 animate-pulse;
+        }
+        .filter-btn {
+  @apply px-4 py-2 rounded-full border text-sm cursor-pointer;
+}
+.filter-btn.active {
+  @apply bg-black text-white dark:bg-white dark:text-black;
+}
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300">
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md">
+  <div class="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 lg:px-10">
+
+    <!-- LOGO -->
+    <div class="flex items-center gap-3">
+      <div class="flex h-24 w-24 items-center justify-center rounded-lg overflow-hidden">
+        <img src="logo.png" alt="logo">
+      </div>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden md:flex flex-1 justify-center gap-8">
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="results.html">Osiągnięcia</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="historia.html">Historia</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Twarze Klubu</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Kadra Trenerska</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Sponsoring</a>
+      <a class="text-sm font-semibold hover:text-primary transition-colors" href="aktualnosci.html">Aktualności</a>
+    </nav>
+
+    <!-- HAMBURGER (MOBILE) -->
+    <button
+      id="mobile-menu-button"
+      class="md:hidden flex items-center justify-center w-10 h-10"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <!-- klasyczny hamburger -->
+      <div class="space-y-1">
+        <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
+        <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
+        <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
+      </div>
+    </button>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div
+    id="mobile-menu"
+    class="md:hidden fixed inset-0 z-40 hidden"
+  >
+    <!-- OVERLAY (TO PRZYCIEMNIA TŁO) -->
+    <div
+      id="mobile-overlay"
+      class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
+    ></div>
+
+    <!-- PANEL MENU -->
+    <div
+      id="mobile-panel"
+      class="relative bg-white dark:bg-background-dark p-8 space-y-6 transform transition-opacity duration-300 opacity-0"
+    >
+      <a class="block font-semibold" href="results.html">Osiągnięcia</a>
+      <a class="block font-semibold" href="#">Historia</a>
+      <a class="block font-semibold" href="#">Twarze Klubu</a>
+      <a class="block font-semibold" href="#">Kadra Trenerska</a>
+      <a class="block font-semibold" href="#">Sponsoring</a>
+      <a class="block font-semibold" href="aktualnosci.html">Aktualności</a>
+      <a class="block font-semibold" href="formularz.html">Zgłoszenia</a>
+    </div>
+  </div>
+</header>
+<!-- Desktop Sidebar -->
+<aside class="fixed left-0 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center">
+  <div class="bg-primary border border-white/10 border-l-0 rounded-r-xl shadow-2xl backdrop-blur-md flex flex-col items-center py-6 gap-6 w-16 group transition-all duration-300 hover:w-20 relative">
+    <!-- Label -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="vertical-text text-[10px] font-bold tracking-[0.2em] text-white uppercase ">Śledź nas</span>
+      <div class="w-[1px] h-8 bg-primary/30"></div>
+    </div>
+    <!-- Social Links -->
+    <div class="flex flex-col gap-4">
+      <!-- Facebook -->
+<a aria-label="Facebook" class="sidebar-item relative flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-accent transition-all duration-300 group/item" href="https://www.facebook.com/UKS12KALISZ">
+  <svg class="w-6 h-6 text-white group-hover/item:text-background-white" fill="currentColor" viewBox="0 0 256 256">
+    <path d="M224,128A96,96,0,1,0,113.94,223.6V147.89H86.74V128h27.2V112.93c0-26.83,16-41.66,40.44-41.66a164.66,164.66,0,0,1,23.95,2.09V99.82H165.5c-12.64,0-16.58,7.84-16.58,15.88V128h28.22l-4.51,19.89H148.92V223.6A96.05,96.05,0,0,0,224,128Z"></path>
+  </svg>
+  <span class="tooltip absolute left-full top-1/2 -translate-y-1/2 ml-4 px-3 py-1.5 bg-primary text-background-white text-xs font-bold rounded
+               opacity-0 group-hover/item:opacity-100 pointer-events-auto transition-all duration-300 transform -translate-x-2 whitespace-nowrap z-50 text-white">
+    FACEBOOK
+  </span>
+</a>
+
+      <!-- Instagram -->
+      <a aria-label="Instagram" class="sidebar-item relative flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-accent transition-all duration-300 group/item" href="https://www.instagram.com/uks_12_kalisz/">
+        <svg class="w-6 h-6 text-white group-hover/item:text-background-white" fill="currentColor" viewBox="0 0 256 256">
+          <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+        </svg>
+        <span class="tooltip absolute left-full top-1/2 -translate-y-1/2 ml-4 px-3 py-1.5 bg-primary text-background-white text-xs font-bold rounded
+                     opacity-0 group-hover/item:opacity-100 pointer-events-auto transition-all duration-300 transform -translate-x-2 whitespace-nowrap z-50 text-white">
+          INSTAGRAM
+        </span>
+      </a>
+    </div>
+    <!-- Branding Bottom -->
+    <div class="mt-4 flex flex-col items-center gap-3">
+      <div class="w-8 h-[1px] bg-white/10"></div>
+      <div class="flex flex-col items-center">
+        <span class="text-xs font-black text-white mb-1">UKS</span>
+        <span class="text-lg font-black text-white leading-none">12</span>
+        <span class="text-[10px] font-bold text-white mt-1 uppercase tracking-tighter">Kalisz</span>
+      </div>
+    </div>
+
+  </div>
+</aside>
+
+<!-- Mobile Bottom Bar (bez zmian) -->
+<div class="fixed bottom-0 left-0 w-full md:hidden flex justify-center bg-primary border-t border-white/10 backdrop-blur-md py-2 gap-4 z-50">
+  <!-- Ikony -->
+  <a aria-label="Facebook" class="flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-primary transition-all duration-300" href="https://www.facebook.com/UKS12KALISZ">
+      <svg class="w-6 h-6 text-white group-hover/item:text-background-white" fill="currentColor" viewBox="0 0 256 256">
+    <path d="M224,128A96,96,0,1,0,113.94,223.6V147.89H86.74V128h27.2V112.93c0-26.83,16-41.66,40.44-41.66a164.66,164.66,0,0,1,23.95,2.09V99.82H165.5c-12.64,0-16.58,7.84-16.58,15.88V128h28.22l-4.51,19.89H148.92V223.6A96.05,96.05,0,0,0,224,128Z"></path>
+  </svg>
+  </a>
+  <a href="" class="flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-primary transition-all duration-300 text-white font-bold">Śledź nas</a>
+  <a aria-label="Instagram" class="flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-primary transition-all duration-300" href="https://www.instagram.com/uks_12_kalisz/">
+    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 256 256">
+      <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+    </svg>
+  </a>
+</div>
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div class="space-y-3">
+<div class="w-32 h-6 skeleton-bar bg-accent/30 dark:bg-accent/20"></div>
+<h2 class="text-4xl md:text-5xl font-display font-extrabold text-primary dark:text-white uppercase tracking-tight flex items-center gap-3">
+                Aktualności <span class="text-accent">News</span>
+</h2>
+<div class="h-1.5 w-24 bg-accent rounded-full"></div>
+</div>
+<div class="w-28 h-5 skeleton-bar"></div>
+</div>
+<div id="news-filters" class="flex gap-3 mb-8 flex-wrap">
+  <button data-category="all" class="filter-btn active">Wszystkie</button>
+  <button data-category="zycie-klubu" class="filter-btn">Życie klubu</button>
+  <button data-category="sukcesy" class="filter-btn">Sukcesy</button>
+  <button data-category="wydarzenia" class="filter-btn">Wydarzenia</button>
+  <button data-category="inne" class="filter-btn">Inne</button>
+</div>
+
+<div 
+  id="news-grid"
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+></div>
+
+<div class="mt-12 text-center md:hidden">
+<div class="inline-block w-full h-12 skeleton-bar"></div>
+</div>
+</section>
+<div
+  id="news-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm"
+>
+  <div
+    class="bg-white dark:bg-slate-900 max-w-3xl w-full mx-4 rounded-2xl shadow-2xl overflow-hidden relative"
+  >
+    <button
+      id="news-modal-close"
+      class="absolute top-4 right-4 text-2xl font-bold opacity-60 hover:opacity-100"
+    >
+      ×
+    </button>
+
+    <div id="news-modal-content" class="p-6 md:p-8 space-y-6"></div>
+  </div>
+</div>
+<footer class="bg-primary text-slate-100 py-16">
+<div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+<div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center rounded-lg bg-accent p-2 text-primary">
+<span class="material-symbols-outlined text-2xl font-bold">sprint</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight text-white uppercase leading-none">UKS 12 <span class="text-accent">Kalisz</span></h2>
+</div>
+<p class="text-sm leading-relaxed opacity-80">Wzmacnianie sportowców i budowanie społeczności od lat. Dołącz do naszej misji uczynienia sportu dostępnym dla każdego w Kaliszu.</p>
+<div class="flex gap-4">
+<a class="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-accent hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-accent hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="mb-6 font-bold text-accent uppercase tracking-widest text-xs">Szybkie Linki</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li><a class="hover:text-accent transition-colors" href="aktualnosci.html">Aktualności</a></li>
+<li><a class="hover:text-accent transition-colors" href="index.html#forSponsors">Oferta Sponsoringowa</a></li>
+<li><a class="hover:text-accent transition-colors" href="results.html">Rekordy Klubu</a></li>
+<li><a class="hover:text-accent transition-colors" href="index.html#contact">Kontakt</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mb-6 font-bold text-accent uppercase tracking-widest text-xs">Programy</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li><a class="hover:text-accent transition-colors" href="#">Lekkoatletyka Dla Każdego</a></li>
+</ul>
+</div>
+<div>
+<h5 class="mb-6 font-bold text-accent uppercase tracking-widest text-xs">Kontakt</h5>
+<ul class="flex flex-col gap-4 text-sm">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-accent text-sm">location_on</span>
+                           <a href="https://maps.app.goo.gl/18jASMwHpEvVBjVc8">ul. Długosza 14, 62-800 Kalisz, Polska</a>
+                        </li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-accent text-sm">call</span>
+                            <a href="tel:+48 502 389 675">+48 502 389 675</a>
+                        </li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-accent text-sm">mail</span>
+                            <a href="mailto:uks12kalisz@gmail.com">uks12kalisz@gmail.com</a>
+                        </li>
+</ul>
+</div>
+</div>
+<div class="mt-16 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium opacity-60">
+<p>© 2024 UKS 12 Kalisz. Wszystkie prawa zastrzeżone.</p>
+<div class="flex gap-8">
+<a class="hover:text-accent transition-colors" href="#">Polityka Prywatności</a>
+<a class="hover:text-accent transition-colors" href="#">Regulamin</a>
+</div>
+</div>
+</div>
+</footer>>
+<script src="./js/news.js"></script>
+<script src="header.js"></script>
+</body></html>

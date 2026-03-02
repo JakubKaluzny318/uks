@@ -1,0 +1,10 @@
+Trenerzy:
+Trener1:
+-opis co i jak
+-nr telefonu
+Formularz:
+dodać sekcję i w zależności od sekcji dany trener Waldek/Paweł/Mazi i w zależności od wybranego  trenera na wybrany mail pojdzie zgłoszenie
+Program:
+Klub pro - ministerswo wspiera kluby 
+LDK
+odzież klubowa
