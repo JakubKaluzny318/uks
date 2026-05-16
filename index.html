@@ -51,14 +51,14 @@
   <header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md">
   <div class="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 lg:px-10">
 
-    <!-- LOGO -->
+
     <div class="flex items-center gap-3">
       <div class="flex h-24 w-24 items-center justify-center rounded-lg overflow-hidden">
         <img src="logo.png" alt="logo">
       </div>
     </div>
 
-    <!-- DESKTOP NAV -->
+ 
     <nav class="hidden md:flex flex-1 justify-center gap-8">
       <a class="text-sm font-semibold hover:text-primary transition-colors" href="results.html">Osiągnięcia</a>
       <a class="text-sm font-semibold hover:text-primary transition-colors" href="historia.html">Historia</a>
@@ -68,14 +68,14 @@
       <a class="text-sm font-semibold hover:text-primary transition-colors" href="aktualnosci.html">Aktualności</a>
     </nav>
 
-    <!-- HAMBURGER (MOBILE) -->
+    
     <button
       id="mobile-menu-button"
       class="md:hidden flex items-center justify-center w-10 h-10"
       aria-expanded="false"
       aria-controls="mobile-menu"
     >
-      <!-- klasyczny hamburger -->
+     
       <div class="space-y-1">
         <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
         <span class="block w-6 h-0.5 bg-black dark:bg-white"></span>
@@ -85,18 +85,18 @@
 
   </div>
 
-  <!-- MOBILE MENU -->
+  
   <div
     id="mobile-menu"
     class="md:hidden fixed inset-0 z-40 hidden"
   >
-    <!-- OVERLAY (TO PRZYCIEMNIA TŁO) -->
+   
     <div
       id="mobile-overlay"
       class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
     ></div>
 
-    <!-- PANEL MENU -->
+   
     <div
       id="mobile-panel"
       class="relative bg-white dark:bg-background-dark p-8 space-y-6 transform transition-opacity duration-300 opacity-0"
@@ -112,17 +112,17 @@
   </div>
 </header>
 <div class="relative flex min-h-screen flex-col">
-<!-- Desktop Sidebar -->
+
 <aside class="fixed left-0 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center">
   <div class="bg-primary border border-white/10 border-l-0 rounded-r-xl shadow-2xl backdrop-blur-md flex flex-col items-center py-6 gap-6 w-16 group transition-all duration-300 hover:w-20 relative">
-    <!-- Label -->
+    
     <div class="flex items-center gap-2 mb-2">
       <span class="vertical-text text-[10px] font-bold tracking-[0.2em] text-white uppercase ">Śledź nas</span>
       <div class="w-[1px] h-8 bg-primary/30"></div>
     </div>
-    <!-- Social Links -->
+   
     <div class="flex flex-col gap-4">
-      <!-- Facebook -->
+     
 <a aria-label="Facebook" class="sidebar-item relative flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-accent transition-all duration-300 group/item" href="https://www.facebook.com/UKS12KALISZ">
   <svg class="w-6 h-6 text-white group-hover/item:text-background-white" fill="currentColor" viewBox="0 0 256 256">
     <path d="M224,128A96,96,0,1,0,113.94,223.6V147.89H86.74V128h27.2V112.93c0-26.83,16-41.66,40.44-41.66a164.66,164.66,0,0,1,23.95,2.09V99.82H165.5c-12.64,0-16.58,7.84-16.58,15.88V128h28.22l-4.51,19.89H148.92V223.6A96.05,96.05,0,0,0,224,128Z"></path>
@@ -133,7 +133,7 @@
   </span>
 </a>
 
-      <!-- Instagram -->
+     
       <a aria-label="Instagram" class="sidebar-item relative flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-accent transition-all duration-300 group/item" href="https://www.instagram.com/uks_12_kalisz/">
         <svg class="w-6 h-6 text-white group-hover/item:text-background-white" fill="currentColor" viewBox="0 0 256 256">
           <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
@@ -144,7 +144,7 @@
         </span>
       </a>
     </div>
-    <!-- Branding Bottom -->
+   
     <div class="mt-4 flex flex-col items-center gap-3">
       <div class="w-8 h-[1px] bg-white/10"></div>
       <div class="flex flex-col items-center">
@@ -157,9 +157,9 @@
   </div>
 </aside>
 
-<!-- Mobile Bottom Bar (bez zmian) -->
+
 <div class="fixed bottom-0 left-0 w-full md:hidden flex justify-center bg-primary border-t border-white/10 backdrop-blur-md py-2 gap-4 z-50">
-  <!-- Ikony -->
+  
   <a aria-label="Facebook" class="flex items-center justify-center w-10 h-10 rounded-lg bg-navy-accent hover:bg-primary transition-all duration-300" href="https://www.facebook.com/UKS12KALISZ">
       <svg class="w-6 h-6 text-white group-hover/item:text-background-white" fill="currentColor" viewBox="0 0 256 256">
     <path d="M224,128A96,96,0,1,0,113.94,223.6V147.89H86.74V128h27.2V112.93c0-26.83,16-41.66,40.44-41.66a164.66,164.66,0,0,1,23.95,2.09V99.82H165.5c-12.64,0-16.58,7.84-16.58,15.88V128h28.22l-4.51,19.89H148.92V223.6A96.05,96.05,0,0,0,224,128Z"></path>
@@ -199,7 +199,7 @@
 </div>
 </section>
 <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" data-purpose="contact-section" id="contact-us">
-<!-- Section Header -->
+
 <div class="text-center mb-16" id="contact">
 <span class="inline-block px-4 py-1 bg-accent text-primary font-bold text-sm tracking-widest uppercase rounded mb-4">
         Zostań częścią drużyny
@@ -210,13 +210,13 @@
 <div class="h-1.5 w-24 bg-accent mx-auto mt-6 rounded-full"></div>
 </div>
 <div class="flex justify-center">
-<!-- BEGIN: Contact Info and Map -->
+
 <div class="space-y-8 flex justify-center" data-purpose="contact-info-container">
-<!-- Contact Details Card -->
+
 <div class="bg-white p-8 rounded-2xl shadow-xl border-l-8 border-accent">
 <h3 class="text-2xl font-bold text-primary mb-6 uppercase">Dane kontaktowe</h3>
 <div class="space-y-6">
-<!-- Phone -->
+
 <div class="flex  items-center space-x-4">
 <div class="bg-primary p-3 rounded-lg">
 <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -228,7 +228,7 @@
 <a class="text-lg font-bold hover:text-uks-blue transition-colors" href="tel:+48 502 389 675">+48 502 389 675</a>
 </div>
 </div>
-<!-- Email -->
+
 <div class="flex items-center space-x-4">
 <div class="bg-primary p-3 rounded-lg">
 <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -240,7 +240,7 @@
 <a class="text-lg font-bold hover:text-uks-blue transition-colors" href="mailto:uks12kalisz@gmail.com">uks12kalisz@gmail.com</a>
 </div>
 </div>
-<!-- Address -->
+
 <div class="flex items-center space-x-4">
 <div class="bg-primary p-3 rounded-lg">
 <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
